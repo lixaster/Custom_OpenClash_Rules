@@ -9,6 +9,5 @@
 | 使用独立游戏规则 | [`rule/game_rule/`](rule/game_rule/) |
 | 使用单功能远程覆写模块 | [`overwrite/`](overwrite/) |
 | 安装、更新或检测 OpenClash | [`shell/`](shell/) |
-| 使用 Sub-Store 扩展脚本 | [Sub-Store 脚本](script/sub-store/) |
 
 > 目前只修改了cfg目录，如需修改rule，记得修改配置文件的引用文件url。
