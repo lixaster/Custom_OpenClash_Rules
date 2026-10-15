@@ -1,0 +1,13 @@
+# 不支持本地加载
+payload:
+  - DOMAIN-SUFFIX,m-team.cc
+  - DOMAIN-SUFFIX,m-team.io
+  - DOMAIN-SUFFIX,hdsky.me
+  - DOMAIN-SUFFIX,0ff.cc
+  - DOMAIN-SUFFIX,btschool.club
+  - DOMAIN-SUFFIX,ultrahd.net
+  - DOMAIN-SUFFIX,pttime.org
+  - DOMAIN-SUFFIX,pterclub.net
+  - DOMAIN-SUFFIX,hdfans.org
+  - DOMAIN-SUFFIX,hdkyl.in
+  - DOMAIN-SUFFIX,hdkyl.top

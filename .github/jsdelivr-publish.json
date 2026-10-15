@@ -1,5 +1,5 @@
 {
-  "repository": "Aethersailor/Custom_OpenClash_Rules",
+  "repository": "lixaster/Custom_OpenClash_Rules",
   "branch": "main",
   "ref_aliases": [
     "main"
@@ -9,9 +9,7 @@
     "icon",
     "overwrite",
     "rule",
-    "script",
-    "shell",
-    "wiki"
+    "shell"
   ],
   "deferred_sources": [
     "rule/Custom_Direct.list",
@@ -43,8 +41,6 @@
     "rule/game_rule/Overwatch2/Overwatch2_Asia-Singapore.list"
   ],
   "snapshot_deferred_inputs": [
-    "py/generate_rules.py",
-    "py/generate_stash_configs.py",
     "cfg/Custom_Clash.ini",
     "cfg/Custom_Clash_Fallback.ini",
     "cfg/Custom_Clash_Lite.ini",

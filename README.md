@@ -11,3 +11,5 @@
 | 安装、更新或检测 OpenClash | [`shell/`](shell/) |
 
 > 目前只修改了cfg目录，如需修改rule，记得修改配置文件的引用文件url。
+
+-  更详细的配置相关文档模板参考[`README`](cfg/README.md)。
