@@ -1,0 +1,56 @@
+DOMAIN-SUFFIX,synology.com,DIRECT
+DOMAIN-SUFFIX,synology.cn,DIRECT
+DOMAIN-SUFFIX,quickconnect.to,DIRECT
+DOMAIN-SUFFIX,quickconnect.cn,DIRECT
+DOMAIN-SUFFIX,immersivetranslate.com,DIRECT
+DOMAIN-SUFFIX,m-team.cc,DIRECT
+DOMAIN-SUFFIX,m-team.io,DIRECT
+DOMAIN-SUFFIX,hdsky.me,DIRECT
+DOMAIN-SUFFIX,0ff.cc,DIRECT
+DOMAIN-SUFFIX,btschool.club,DIRECT
+DOMAIN-SUFFIX,ultrahd.net,DIRECT
+DOMAIN-SUFFIX,pttime.org,DIRECT
+DOMAIN-SUFFIX,pterclub.net,DIRECT
+DOMAIN-SUFFIX,hdfans.org,DIRECT
+DOMAIN-SUFFIX,hdkyl.in,DIRECT
+DOMAIN-SUFFIX,hdkyl.top,DIRECT
+DOMAIN-REGEX,^.*\.?amazon\.cn$,DIRECT
+DST-PORT,51222,DIRECT
+DST-PORT,51666,DIRECT
+DOMAIN-SUFFIX,anilist.co,🇺🇳 国外网站
+DOMAIN-SUFFIX,synologyupdate.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,synocommunity.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,synologydownload.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,pypi.org,🇺🇳 国外网站
+DOMAIN-SUFFIX,pythonhosted.org,🇺🇳 国外网站
+DOMAIN-SUFFIX,hacs.xyz,🇺🇳 国外网站
+DOMAIN-SUFFIX,hacs.vip,🇺🇳 国外网站
+DOMAIN-SUFFIX,home-assistant.io,🇺🇳 国外网站
+DOMAIN-SUFFIX,playwright.azureedge.net,🇺🇳 国外网站
+DOMAIN-SUFFIX,fanart.tv,🇺🇳 国外网站
+DOMAIN-SUFFIX,ghcr.io,🇺🇳 国外网站
+DOMAIN-SUFFIX,beget.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,gallerycdn.vsassets.io,🇺🇳 国外网站
+DOMAIN-SUFFIX,movie-pilot.org,🇺🇳 国外网站
+DOMAIN-SUFFIX,githubusercontent.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,lscr.io,🇺🇳 国外网站
+DOMAIN-SUFFIX,gamebanana.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,npmjs.org,🇺🇳 国外网站
+DOMAIN-SUFFIX,blob.core.windows.net,🇺🇳 国外网站
+DOMAIN-SUFFIX,xdaforums.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,androidfilehost.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,ftp.apnic.net,🇺🇳 国外网站
+DOMAIN-SUFFIX,chariz.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,brew.sh,🇺🇳 国外网站
+DOMAIN-SUFFIX,dl-cdn.alpinelinux.org,🇺🇳 国外网站
+DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com,🇺🇳 国外网站
+DOMAIN-SUFFIX,appcenter.ms,🧩 微软服务
+DOMAIN-SUFFIX,clarity.ms,🧩 微软服务
+DOMAIN-SUFFIX,anthropic.com,🤖 OpenAI
+DOMAIN-SUFFIX,claude.ai,🤖 OpenAI
+DOMAIN-SUFFIX,ubi.com,🎮 游戏平台
+DOMAIN-SUFFIX,just-dance.com,🎮 游戏平台
+DOMAIN-SUFFIX,ubisoft.com,🎮 游戏平台
+DOMAIN-SUFFIX,cdpred.services,🎮 游戏平台
+DOMAIN-SUFFIX,cdprojektred.com,🎮 游戏平台
+DOMAIN-KEYWORD,amazon,🎬 Prime
