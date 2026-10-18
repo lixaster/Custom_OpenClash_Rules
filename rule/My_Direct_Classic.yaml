@@ -1,5 +1,6 @@
 payload:
   # PT
-  - DOMAIN-SUFFIX,hdkylin.com
+  # - DOMAIN-SUFFIX,hdkylin.com
+  - DST-PORT,7777
   - DST-PORT,51222
   - DST-PORT,51666
