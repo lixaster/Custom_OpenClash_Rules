@@ -1,9 +1,11 @@
 payload:
+  # 沉浸式翻译
   - '+.immersivetranslate.com'
   # NAS
   - '+.synology.com'
   - '+.synology.cn'
   - '+.quickconnect.to'
   - '+.quickconnect.cn'
+  # Steam直连下载
   - '+.steamserver.net'
   - '+.steamcontent.com'

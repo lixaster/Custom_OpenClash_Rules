@@ -72,7 +72,7 @@ rule-providers:
 rules:
 # 支持的代理组:  🚀 手动选择,♻️ 自动选择
 # 💬 即时通讯,🌐 社交媒体,🚀 GitHub,💻 开发者服务
-# 🤖 AI服务,🎥 海外影音,📹 YouTube,🎥 Emby
+# 🤖 AI服务,🎥 海外影音,📹 YouTube,📹 Emby
 # 📺 Bahamut,🌎 国外媒体,🛒 国外电商,📢 谷歌FCM
 # 🇬 谷歌服务,🍎 苹果服务,Ⓜ️ 微软服务,🎮 游戏平台
 # 🎮 Steam,⏬ PT站点,🚀 测速工具,🐟 漏网之鱼
