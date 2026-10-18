@@ -1,4 +1,5 @@
 payload:
+  # 常规
   - '+.anilist.co'
   - '+.synologyupdate.com'
   - '+.synocommunity.com'
@@ -18,3 +19,13 @@ payload:
   - '+.browserleaks.org'
   - '+.browserleaks.net'
   - '+.browserleaks.com'
+  # Games
+  - '+.cdpred.services'
+  - '+.cdprojektred.com'
+  # Docker
+  - '+.daocloud.io'
+  - '+.daocloud.vip'
+  - '+.dockerhub.azk8s.cn'
+  - '+.docker.jianmuhub.com'
+  - '+.beget.com'
+  - '+.beget.ru'
