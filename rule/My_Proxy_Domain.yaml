@@ -1,20 +1,22 @@
 payload:
   # 常规
-  - '+.anilist.co'
   - '+.synologyupdate.com'
   - '+.synocommunity.com'
   - '+.synologydownload.com'
-  - '+.hacs.xyz'
-  - '+.hacs.vip'
-  - '+.home-assistant.io'
   - '+.playwright.azureedge.net'
-  - '+.fanart.tv'
-  - '+.movie-pilot.org'
   - '+.lscr.io'
-  - '+.gamebanana.com'
   - '+.blob.core.windows.net'
   - '+.ftp.apnic.net'
   - '+.chariz.com'
+  # 智能家居
+  - '+.home-assistant.io'
+  - '+.nodered.org'
+  - '+.hacs.xyz'
+  - '+.hacs.vip'
+  # 影音
+  - '+.anilist.co'
+  - '+.fanart.tv'
+  - '+.movie-pilot.org'
   # DNS泄露检测
   - '+.browserleaks.org'
   - '+.browserleaks.net'
@@ -22,6 +24,7 @@ payload:
   # Games
   - '+.cdpred.services'
   - '+.cdprojektred.com'
+  - '+.gamebanana.com'
   # Docker
   - '+.daocloud.io'
   - '+.daocloud.vip'
