@@ -1,3 +1,24 @@
+## jsdelivr缓存更新
+
+jsDelivr CDN 的自动缓存更新时间，jsDelivr作为免费开源的CDN服务，在NPM包更新后不会立即同步，默认缓存时间为24小时。  
+如需强制刷新，可将原链接中的"cdn.jsdelivr.net"替换为"purge.jsdelivr.net"(下面是可能需要手动更新的本项目地址)；
+
+### 更新方法
+
+```bash
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Domain.yaml
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Classic.yaml
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Proxy_Domain.yaml
+```
+
+### 查看结果
+
+```bash
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Domain.yaml
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Classic.yaml
+curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Proxy_Domain.yaml
+```
+
 ## openclash覆写设置
 
 ```yaml
