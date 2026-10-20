@@ -14,9 +14,9 @@ curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_
 ### 查看结果
 
 ```bash
-curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Domain.yaml
-curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Classic.yaml
-curl https://purge.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Proxy_Domain.yaml
+curl https://cdn.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Domain.yaml
+curl https://cdn.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Direct_Classic.yaml
+curl https://cdn.jsdelivr.net/gh/lixaster/Custom_OpenClash_Rules@main/rule/My_Proxy_Domain.yaml
 ```
 
 ## openclash覆写设置
