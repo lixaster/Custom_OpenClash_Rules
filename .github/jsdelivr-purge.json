@@ -1,0 +1,7 @@
+{
+  "repository": "lixaster/Custom_OpenClash_Rules",
+  "branch": "main",
+  "file_path": [
+    "rule/My_*.yaml"
+  ]
+}

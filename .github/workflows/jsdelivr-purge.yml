@@ -1,0 +1,177 @@
+
+name: 刷新 jsDelivr CDN 缓存
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jsdelivr-purge
+  cancel-in-progress: false
+
+jobs:
+  purge:
+    name: 刷新指定文件的 CDN 缓存
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 读取配置并刷新 CDN 缓存
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          CURRENT_BRANCH: ${{ github.ref_name }}
+        run: |
+          set -Eeuo pipefail
+
+          # 配置文件路径
+          CONFIG=".github/jsdelivr-purge.json"
+
+          if [[ ! -f "$CONFIG" ]]; then
+            echo "::error::未找到配置文件：$CONFIG"
+            exit 1
+          fi
+
+          # 检查 JSON 配置格式
+          jq -e '
+            (.repository | type == "string" and length > 0)
+            and (.branch | type == "string" and length > 0)
+            and (.file_path | type == "array" and length > 0)
+            and all(.file_path[]; type == "string" and length > 0)
+          ' "$CONFIG" > /dev/null
+
+          # 读取仓库名称、分支和文件匹配规则
+          REPOSITORY=$(jq -r '.repository' "$CONFIG")
+          BRANCH=$(jq -r '.branch' "$CONFIG")
+
+          mapfile -t PATTERNS < <(
+            jq -r '.file_path[]' "$CONFIG"
+          )
+
+          # 检查仓库名称格式
+          if [[ ! "$REPOSITORY" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]]; then
+            echo "::error::仓库名称格式不正确：$REPOSITORY"
+            exit 1
+          fi
+
+          # 检查分支名称格式
+          if [[ ! "$BRANCH" =~ ^[A-Za-z0-9._/-]+$ ]]; then
+            echo "::error::分支名称格式不正确：$BRANCH"
+            exit 1
+          fi
+
+          echo "目标仓库：$REPOSITORY"
+          echo "目标分支：$BRANCH"
+          echo "文件匹配规则："
+          printf '  - %s\n' "${PATTERNS[@]}"
+
+          # 仅在推送到配置指定的分支时自动刷新
+          if [[ "$EVENT_NAME" == "push" && "$CURRENT_BRANCH" != "$BRANCH" ]]; then
+            echo "当前分支不是配置指定的分支（$BRANCH），跳过缓存刷新。"
+            exit 0
+          fi
+
+          # 获取发生变化的文件列表
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            # 手动运行时，检查当前检出版本中所有已跟踪的文件
+            git ls-files -z > /tmp/changed-files.bin
+          elif [[ "$BEFORE" =~ ^0+$ ]]; then
+            # 首次推送时，检查新提交中的所有文件
+            git ls-tree -r --name-only -z "$AFTER" \
+              > /tmp/changed-files.bin
+          else
+            # 比较推送前后的提交，获取发生变化的文件
+            git diff --name-only -z "$BEFORE" "$AFTER" \
+              > /tmp/changed-files.bin
+          fi
+
+          mapfile -d '' -t CHANGED_FILES < /tmp/changed-files.bin
+
+          # 根据 JSON 中的匹配规则筛选文件
+          MATCHED_FILES=()
+
+          for file in "${CHANGED_FILES[@]}"; do
+            for pattern in "${PATTERNS[@]}"; do
+              if [[ "$file" == $pattern ]]; then
+                MATCHED_FILES+=("$file")
+                break
+              fi
+            done
+          done
+
+          # 没有匹配文件时正常结束
+          if [[ ${#MATCHED_FILES[@]} -eq 0 ]]; then
+            echo "没有符合配置规则的变更文件，无需刷新缓存。"
+            exit 0
+          fi
+
+          # 去除重复路径
+          mapfile -t MATCHED_FILES < <(
+            printf '%s\n' "${MATCHED_FILES[@]}" | sort -u
+          )
+
+          echo "需要刷新的文件数量：${#MATCHED_FILES[@]}"
+
+          # 逐个调用 jsDelivr Purge API
+          FAILED_COUNT=0
+
+          for file in "${MATCHED_FILES[@]}"; do
+            # 对文件路径进行 URL 编码，同时保留目录分隔符
+            ENCODED_PATH=$(python3 -c '
+          import sys
+          from urllib.parse import quote
+          print(quote(sys.argv[1], safe="/"))
+          ' "$file")
+
+            # 拼接缓存刷新地址
+            URL="https://purge.jsdelivr.net/gh/${REPOSITORY}@${BRANCH}/${ENCODED_PATH}"
+
+            echo "::group::刷新文件：$file"
+            echo "请求地址：$URL"
+
+            # 发送请求并获取 HTTP 状态码
+            if HTTP_CODE=$(curl \
+              --silent --show-error \
+              --connect-timeout 10 \
+              --max-time 60 \
+              --retry 2 \
+              --retry-delay 2 \
+              --output /tmp/jsdelivr-response.json \
+              --write-out '%{http_code}' \
+              "$URL"); then
+
+              # 输出 API 响应，方便排查问题
+              cat /tmp/jsdelivr-response.json
+              echo
+
+              # 检查 HTTP 状态码
+              if [[ "$HTTP_CODE" =~ ^2[0-9][0-9]$ ]]; then
+                echo "请求已完成，HTTP 状态码：$HTTP_CODE"
+              else
+                echo "::error::刷新失败，文件：$file，HTTP 状态码：$HTTP_CODE"
+                FAILED_COUNT=$((FAILED_COUNT + 1))
+              fi
+            else
+              echo "::error::请求失败，文件：$file"
+              FAILED_COUNT=$((FAILED_COUNT + 1))
+            fi
+
+            echo "::endgroup::"
+          done
+
+          # 任意文件刷新失败，都将工作流标记为失败
+          if (( FAILED_COUNT > 0 )); then
+            echo "::error::共有 $FAILED_COUNT 个文件刷新失败。"
+            exit 1
+          fi
+
+          echo "所有匹配文件的缓存刷新请求均已成功完成。"
