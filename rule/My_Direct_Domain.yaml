@@ -9,3 +9,5 @@ payload:
   # Steam直连下载
   - '+.steamserver.net'
   - '+.steamcontent.com'
+  # 其他
+  - '+.hdkylin.com'
