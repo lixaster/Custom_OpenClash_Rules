@@ -25,6 +25,8 @@ payload:
   - '+.cdpred.services'
   - '+.cdprojektred.com'
   - '+.gamebanana.com'
+  - '+.3ds.guide'
+  - '+.3ds.hacks.guide'
   # Docker
   - '+.daocloud.io'
   - '+.daocloud.vip'
