@@ -11,3 +11,9 @@ payload:
   - '+.steamcontent.com'
   # 其他
   - '+.hdkylin.com'
+  # Movie-Pilot搜刮接口(直连)
+  - '+.trace.moe'
+  - '+.acoustid.org'
+  - '+.theaudiodb.com'
+  - '+.lrclib.net'
+  - '+.api.amll.dev'
