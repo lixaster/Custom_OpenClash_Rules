@@ -40,3 +40,5 @@ payload:
   - '+.beget.ru'
   - '+.timeweb.cloud'
   - '+.noohub.ru'
+  # Android
+  - 'apt.izzysoft.de'
