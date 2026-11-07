@@ -1,4 +1,7 @@
 payload:
+  # 常规
+  - '+.hdkylin.com'
+  - '+.nvidia.com'
   # 沉浸式翻译
   - '+.immersivetranslate.com'
   # NAS
@@ -9,8 +12,6 @@ payload:
   # Steam直连下载
   - '+.steamserver.net'
   - '+.steamcontent.com'
-  # 其他
-  - '+.hdkylin.com'
   # Movie-Pilot搜刮接口(直连)
   - '+.trace.moe'
   - '+.acoustid.org'
