@@ -9,6 +9,7 @@ payload:
   - '+.ftp.apnic.net'
   - '+.chariz.com'
   - '+.entware.net'
+  - '+.nvidia.com'
   # 智能家居
   - '+.home-assistant.io'
   - '+.nodered.org'
