@@ -22,17 +22,6 @@ payload:
   - '+.browserleaks.org'
   - '+.browserleaks.net'
   - '+.browserleaks.com'
-  # Games
-  - '+.cdpred.services'
-  - '+.cdprojektred.com'
-  - '+.gamebanana.com'
-  - '+.3ds.guide'
-  - '+.3ds.hacks.guide'
-  - '+.universal-team.net'
-  - '+.curl.se'
-  - '+.nintendowifi.net'
-  - '+.gamer520.com'
-  - '+.gamers520.com'
   # Docker
   - '+.daocloud.io'
   - '+.daocloud.vip'
