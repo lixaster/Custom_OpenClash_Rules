@@ -2,6 +2,7 @@ payload:
   # 常规
   - '+.hdkylin.com'
   - '+.nvidia.com'
+  - '+.jsdelivr.net'
   # 沉浸式翻译
   - '+.immersivetranslate.com'
   # NAS
